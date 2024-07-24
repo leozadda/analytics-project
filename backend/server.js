@@ -6,17 +6,18 @@ const formAnalytics = require('./routes/formAnalytics');
 const ipAnalytics = require('./routes/ipAnalytics');
 const totalUsers = require('./routes/totalUsers');
 
-const port = 5000;
+const port = process.env.PORT;
+const uri = "mongodb+srv://leozadda:mR74LoVOBifNitlj@useranalytics.pid8es0.mongodb.net/?retryWrites=true&w=majority&appName=UserAnalytics";
 
 // Create the Express app
 const app = express();
 
 // Set up middleware
-app.use(cors()); // Allow cross-origin requests
+app.use(cors({origin: process.env.FRONTEND_URL}));
 app.use(express.json()); // Parse JSON request bodies
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/analytics')
+mongoose.connect(uri)
   .then(() => {
     console.log('Connected to MongoDB');
     // Start the server after successful MongoDB connection

@@ -5,7 +5,7 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 // Register required chart components
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const URL = "http://localhost:5000";
+const URL = process.env.REACT_APP_API_URL;
 
 export default function FormPercentGraph() {
   // State to hold form data

@@ -1,4 +1,4 @@
-const URL = 'http://localhost:5000';
+const URL = process.env.REACT_APP_API_URL;
 
 export function trackSubmittedForm(uid, submittedForm, email) {
   console.log("Submitted Form - UID:", uid, "Submitted:", submittedForm, "Email:", email);

@@ -11,7 +11,7 @@ L.Icon.Default.mergeOptions({
   shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
 });
 
-const URL = "http://localhost:5000";
+const URL = process.env.REACT_APP_API_URL;
 
 export default function LocationDataGraph() {
   // State to hold location data

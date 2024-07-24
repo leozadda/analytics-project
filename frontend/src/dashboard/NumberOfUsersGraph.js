@@ -5,7 +5,7 @@ import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement
 // Register required chart components
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-const URL = "http://localhost:5000";
+const URL = process.env.REACT_APP_API_URL;
 
 export default function NumberOfUsersGraph() {
   // State to hold user data

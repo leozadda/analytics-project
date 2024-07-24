@@ -1,5 +1,5 @@
 // This is the URL for all API calls
-const URL = 'http://localhost:5000';
+const URL = process.env.REACT_APP_API_URL;
 
 // This gets a user's IP address
 export const fetchUserIP = async () => {

@@ -5,7 +5,7 @@ import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Toolti
 // Register required chart components
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-const URL = "http://localhost:5000";
+const URL = process.env.REACT_APP_API_URL;
 
 export default function ScrollPercentGraph() {
   // State to hold scroll data
