@@ -13,7 +13,11 @@ const uri = process.env.MONGODB_URI;
 const app = express();
 
 // Set up middleware
-app.use(cors({origin: process.env.FRONTEND_URL}));
+app.use(cors({
+  origin: process.env.FRONTEND_URL,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(express.json()); // Parse JSON request bodies
 
 // Connect to MongoDB
@@ -34,6 +38,11 @@ app.use('/', formAnalytics);
 app.use('/', ipAnalytics);
 app.use('/', pageAnalytics);
 app.use('/', totalUsers);
+
+// Add a root route handler
+app.get('/', (req, res) => {
+  res.send('Welcome to the Analytics API');
+});
 
 // Error handling middleware
 app.use((err, req, res, next) => {
