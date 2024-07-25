@@ -23,11 +23,6 @@ console.log('Attempting to connect to MongoDB...');
 mongoose.connect(mongoURI)
   .then(() => {
     console.log('Successfully connected to MongoDB');
-    // Start the server after successful MongoDB connection
-    const port = process.env.PORT || 3000;
-    app.listen(port, () => {
-      console.log(`Server running on port ${port}`);
-    });
   })
   .catch((err) => {
     console.error('MongoDB connection error:', err);
@@ -39,7 +34,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// Set up routes
+// Set up routes with unique paths
 app.use('/', formAnalytics);
 app.use('/', ipAnalytics);
 app.use('/', pageAnalytics);
