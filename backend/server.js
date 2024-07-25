@@ -41,12 +41,14 @@ app.use((err, req, res, next) => {
   res.status(500).send('Something broke!');
 });
 
+// Set up routes
+app.use('/', formAnalytics);
+app.use('/', ipAnalytics);
+app.use('/', pageAnalytics);
+app.use('/', totalUsers);
+
 // For Vercel serverless functions
 module.exports = app;
-// Set up routes
-//app.use('/', formAnalytics);
-//app.use('/', ipAnalytics);
-//app.use('/', pageAnalytics);
-//app.use('/', totalUsers);
+
 
 
