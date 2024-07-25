@@ -103,6 +103,7 @@ export function usePageInteractions() {
 }
 
 // This function sends a POST request to the backend service with the time spent on website
+
 export const savePageData = async (uid, pageData) => {
   try {
     const response = await fetch(`${URL}/save-page-data`, {
@@ -111,10 +112,19 @@ export const savePageData = async (uid, pageData) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ uid, pageData }),
+      credentials: 'include'
     });
-    console.log(response);
-    return response;
+    
+    if (response.ok) {
+      console.log('Page data saved successfully');
+      return response.json();
+    } else {
+      console.error('Error saving page data:', response.status, response.statusText);
+      const text = await response.text();
+      console.error("Response body:", text);
+    }
   } catch (error) {
     console.error('Error saving page data:', error);
   }
 };
+
