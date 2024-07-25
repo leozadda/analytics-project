@@ -11,7 +11,7 @@ L.Icon.Default.mergeOptions({
   shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
 });
 
-const URL = process.env.REACT_APP_API_URL;
+const URL = 'https://analytics-project-backend.vercel.app/';
 
 export default function LocationDataGraph() {
   // State to hold location data

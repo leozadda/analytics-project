@@ -5,7 +5,7 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 // Register required chart components
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const URL = process.env.REACT_APP_API_URL;
+const URL = 'https://analytics-project-backend.vercel.app/';
 
 export default function FormPercentGraph() {
   // State to hold form data

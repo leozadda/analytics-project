@@ -1,5 +1,5 @@
 // This is the URL for all API calls
-const URL = process.env.REACT_APP_API_URL;
+const URL = 'https://analytics-project-backend.vercel.app/';
 
 // This gets a user's IP address
 export const fetchUserIP = async () => {

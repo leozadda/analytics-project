@@ -6,23 +6,27 @@ const formAnalytics = require('./routes/formAnalytics');
 const ipAnalytics = require('./routes/ipAnalytics');
 const totalUsers = require('./routes/totalUsers');
 
-const port = process.env.PORT || 3000;
-const uri = process.env.MONGODB_URI;
+//const uri = process.env.MONGODB_URI;
 
 // Create the Express app
 const app = express();
 
 // Set up middleware
-app.use(cors({ origin: '*' }));
+app.use(cors({   
+  origin: ["https://analytics-project-frontend.vercel.app/"],
+  methods: ["POST", "GET"],
+  credentials: true
+}));
+//app.use(cors({ origin: '*' }));
 app.use(express.json()); // Parse JSON request bodies
 
 // Connect to MongoDB
-mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb+srv://leozadda:mR74LoVOBifNitlj@useranalytics.pid8es0.mongodb.net/?retryWrites=true&w=majority&appName=UserAnalytics')
   .then(() => {
     console.log('Connected to MongoDB');
     // Start the server after successful MongoDB connection
     app.listen(port, () => {
-      console.log(`Server running on port ${port}`);
+      console.log(`Server running`);
     });
   })
   .catch((err) => {
