@@ -5,7 +5,7 @@ import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement
 // Register required chart components
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-const URL = 'https://analytics-project-backend.vercel.app/';
+const URL = 'https://analytics-project-backend-git-main-leozaddas-projects.vercel.app/';
 
 export default function NumberOfUsersGraph() {
   // State to hold user data

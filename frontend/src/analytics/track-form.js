@@ -1,4 +1,4 @@
-const URL = 'https://analytics-project-backend.vercel.app/';
+const URL = 'https://analytics-project-backend-git-main-leozaddas-projects.vercel.app/';
 
 export function trackSubmittedForm(uid, submittedForm, email) {
   console.log("Submitted Form - UID:", uid, "Submitted:", submittedForm, "Email:", email);
