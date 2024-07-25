@@ -17,7 +17,7 @@ app.use(express.json()); // Parse JSON request bodies
 console.log('JSON parsing middleware set up');
 
 // Connect to MongoDB
-const mongoURI = 'mongodb+srv://leozadda:mR74LoVOBifNitlj@useranalytics.pid8es0.mongodb.net/?retryWrites=true&w=majority&appName=UserAnalytics';
+const mongoURI = 'mongodb+srv://leezadda:ISEFBSsv2flNfGw6@analytics-cluster.kufwm7j.mongodb.net/?retryWrites=true&w=majority&appName=analytics-cluster';
 console.log('Attempting to connect to MongoDB...');
 
 mongoose.connect(mongoURI)
