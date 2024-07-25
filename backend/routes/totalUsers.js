@@ -3,6 +3,19 @@ const moment = require('moment');
 const UserAnalytics = require('../models/UserAnalytics');
 const router = express.Router();
 
+// Middleware to handle OPTIONS requests
+const handleOptions = (req, res, next) => {
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(204);
+  }
+  next();
+};
+
+// Apply the middleware to all routes
+router.use(handleOptions);
+
+
+
 // Route to display total user count, grouped by month of entry
 router.get('/all-user-data', async (req, res) => {
   try {
