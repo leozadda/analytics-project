@@ -13,11 +13,7 @@ const uri = process.env.MONGODB_URI;
 const app = express();
 
 // Set up middleware
-app.use(cors({
-  origin: process.env.FRONTEND_URL,
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
+app.use(cors({ origin: '*' }));
 app.use(express.json()); // Parse JSON request bodies
 
 // Connect to MongoDB
