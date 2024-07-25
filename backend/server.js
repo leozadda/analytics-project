@@ -28,10 +28,25 @@ mongoose.connect('mongodb+srv://leezadda:ISEFBSsv2flNfGw6@analytics-cluster.kufw
     console.error('MongoDB connection error:', err);
   });
 
+
+  // Add a root route handler
+app.get('/', (req, res) => {
+  console.log('Root route accessed');
+  res.send('Welcome to the Analytics API');
+});
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error('Error occurred:', err);
+  res.status(500).send('Something broke!');
+});
+
+// For Vercel serverless functions
+module.exports = app;
 // Set up routes
-app.use('/', formAnalytics);
-app.use('/', ipAnalytics);
-app.use('/', pageAnalytics);
-app.use('/', totalUsers);
+//app.use('/', formAnalytics);
+//app.use('/', ipAnalytics);
+//app.use('/', pageAnalytics);
+//app.use('/', totalUsers);
 
 
