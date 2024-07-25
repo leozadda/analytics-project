@@ -12,7 +12,12 @@ const port = 5000;
 const app = express();
 
 // Set up middleware
-app.use(cors()); // Allow cross-origin requests
+app.use(cors({   
+
+  origin: ["https://analytics-project-frontend.vercel.app/"],
+  methods: ["POST", "GET"],
+  credentials: true
+}));
 app.use(express.json()); // Parse JSON request bodies
 
 // Connect to MongoDB
