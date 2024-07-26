@@ -11,38 +11,12 @@ const port = 5000;
 // Create the Express app
 const app = express();
 
-// Set up CORS middleware
-const corsOptions = {
-  origin: 'https://analytics-project-frontend.vercel.app',
-  methods: ['GET', 'POST', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true,
-  optionsSuccessStatus: 204
-};
+app.use(cors({
+  origin: '*', // Allow all origins
+  methods: '*', // Allow all HTTP methods
+  allowedHeaders: '*' // Allow all headers
+}));
 
-// Apply CORS middleware to all routes
-app.use(cors(corsOptions));
-
-// Handle preflight requests
-app.options('*', (req, res) => {
-  res.sendStatus(204);
-});
-
-// Add this middleware to log requests and responses
-app.use((req, res, next) => {
-  console.log('Request URL:', req.url);
-  console.log('Request Method:', req.method);
-  console.log('Origin:', req.get('Origin'));
-  console.log('Access-Control-Request-Method:', req.get('Access-Control-Request-Method'));
-  console.log('Access-Control-Request-Headers:', req.get('Access-Control-Request-Headers'));
-
-  res.on('finish', () => {
-    console.log('Response Status:', res.statusCode);
-    console.log('Response Headers:', res.getHeaders());
-  });
-
-  next();
-});
 
 app.use(express.json()); // Parse JSON request bodies
 

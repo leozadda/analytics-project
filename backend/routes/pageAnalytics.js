@@ -3,18 +3,6 @@ const UserAnalytics = require('../models/UserAnalytics');
 const router = express.Router();
 const axios = require('axios');
 
-// Middleware to handle OPTIONS requests
-const handleOptions = (req, res, next) => {
-  if (req.method === 'OPTIONS') {
-    return res.sendStatus(204);
-  }
-  next();
-};
-
-// Apply the middleware to all routes
-router.use(handleOptions);
-
-
 // Route to save or update submitted form data
 router.post('/save-page-data', async (req, res) => {
   const { uid, pageData } = req.body;

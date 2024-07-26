@@ -2,18 +2,6 @@ const express = require('express');
 const UserAnalytics = require('../models/UserAnalytics');
 const router = express.Router();
 
-// Middleware to handle OPTIONS requests
-const handleOptions = (req, res, next) => {
-  if (req.method === 'OPTIONS') {
-    return res.sendStatus(204);
-  }
-  next();
-};
-
-// Apply the middleware to all routes
-router.use(handleOptions);
-
-
 // Route to save or update submitted form data
 router.post('/track-submitted-form', async (req, res) => {
   const { uid, submittedForm, email } = req.body;

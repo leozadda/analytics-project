@@ -5,7 +5,7 @@ import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Toolti
 // Register required chart components
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-const URL = 'https://analytics-project-backend-git-main-leozaddas-projects.vercel.app/';
+const URL = 'https://analytics-project-nine.vercel.app';
 
 export default function ScrollPercentGraph() {
   // State to hold scroll data

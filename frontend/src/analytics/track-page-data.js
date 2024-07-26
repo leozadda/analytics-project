@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 
 // This is the URL for all API calls
-const URL = 'https://analytics-project-backend-git-main-leozaddas-projects.vercel.app/';
+const URL = 'https://analytics-project-nine.vercel.app';
 
 // Custom hook to collect page interaction data
 export function usePageInteractions() {
