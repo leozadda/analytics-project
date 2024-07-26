@@ -30,8 +30,10 @@ export default function ScrollPercentGraph() {
   const processData = (data) => {
     if (!data) return { labels: [], datasets: [] };
 
-    const scrollPercentages = data.flatMap(item => 
-      item.pageInteractions.map(interaction => interaction.percentPageScrolled)
+    const scrollPercentages = data.flatMap(item =>
+      item.pageInteractions
+        ?.filter(interaction => interaction && interaction.percentPageScrolled !== undefined)
+        .map(interaction => interaction.percentPageScrolled) || []
     );
 
     const labels = ['0-10%', '10-20%', '20-30%', '30-40%', '40-50%', '50-60%', '60-70%', '70-80%', '80-90%', '90-100%'];
