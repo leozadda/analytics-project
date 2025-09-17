@@ -143,7 +143,7 @@ export default function PreorderPage() {
         timerStyle="text-black font-bold font-fugaz-one text-4xl sm:text-6xl md:text-8xl lg:text-[10em]"
         timerContainerClass="flex flex-wrap justify-center"
         timerValueClass="mx-1 sm:mx-2"
-        launchDate={new Date('August 2026')}
+        launchDate={new Date('2026-08-01T00:00:00')}
         title="We're celebrating with 10% off for earlybirds when we launch in August."
         buttonText="JOIN THE WAITLIST"
         inputPlaceholder="Email address"
